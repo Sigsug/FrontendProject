@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../CSS/OnoAir.css">
+    <a href="index.html"><div class="header">OnoAir</div></a>
 </head>
+
 <body>
-    
+    <div class="container">
+        <h1>Manage Destinations</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Airport Name</th>
+                    <th>Airport website</th>
+                    <th>...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tel Aviv </td>
+                    <td>Ben Gurion Airport</td>
+                    <td>https://www.iaa.gov.il/en/</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>New York</td>
+                    <td>John F. Kennedy International Airport</td>
+                    <td>https://www.jfkairport.com/</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <a href="newDestination.html">
+            <button onclick="addDest()">Add Destination</button>
+        </a>
+        <a href="helpPage.html"><div class="footer">
+            <p>&#x2753;</p>
+        </div></a>
+    </div>
 </body>
+
 </html>

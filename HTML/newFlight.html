@@ -4,24 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <a href="index.html">
-        <h1>OnoAir</h1>
-    </a>
+    <title>New Flight</title>
+    <link rel="stylesheet" href="../CSS/OnoAir.css">
+    <a href="index.html"><div class="header">OnoAir</div></a>
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <h1>New Flight</h1>
         <form>
             <label>Flight No.:</label>
             <input type="text" name="flight_num">
             <br />
             <label>Origin:</label>
-            <input type="" name="flight_origin">
+            <select id="origin" name="flight_origin" required>
+                <option value="" disabled selected>Select a city</option>
+                <option value="new-york">New York</option>
+                <option value="london">London</option>
+                <option value="paris">Paris</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="sydney">Israel</option>
+              </select>
             <br />
             <label>Destination:</label>
-            <input type="text" name="flight_dest">
+            <select id="destination" name="flight_dest" required>
+                <option value="" disabled selected>Select a city</option>
+                <option value="new-york">New York</option>
+                <option value="london">London</option>
+                <option value="paris">Paris</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="sydney">Israel</option>
+              </select>
             <br />
             <label>Boarding date:</label>
             <input type="date" name="boarding_date">
@@ -40,6 +53,9 @@
             <br />
             <input type="submit" value="Save">
         </form>
+        <a href="helpPage.html"><div class="footer">
+            <p>&#x2753;</p>
+        </div></a>
     </div>
 </body>
 

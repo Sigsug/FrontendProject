@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>OnoAir - Book a Flight</title>
+    <link rel="stylesheet" href="../CSS/OnoAir.css">
+    <a href="index.html"><div class="header">OnoAir</div></a>
 </head>
+
 <body>
-    
+
+    <div class="container">
+        <h2 style="text-align: center;">Book a flight</h2>
+
+        <div class="filter-section">
+            <label for="origin">Filter by:</label><br>
+            <label for="origin">Origin:</label>
+            <select id="origin" name="origin">
+                <option value="" disabled selected>Select a city</option>
+                <option value="tel-aviv">Tel Aviv</option>
+                <option value="larnaca">Larnaca</option>
+            </select>
+            <br><br>
+            <label for="destination">Destination:</label>
+            <select id="destination" name="destination">
+                <option value="" disabled selected>Select a city</option>
+                <option value="krakow">Krakow</option>
+                <option value="zurich">Zurich</option>
+            </select>
+        </div>
+
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th>Flight No.</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>W61283</td>
+                    <td>Tel Aviv</td>
+                    <td>Krakow</td>
+                    <td><button class="book-button">Book</button></td>
+                </tr>
+                <tr>
+                    <td>LX8396</td>
+                    <td>Larnaca</td>
+                    <td>Zurich</td>
+                    <td><button class="book-button">Book</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="helpPage.html"><div class="footer">
+            <p>&#x2753;</p>
+        </div></a>
+    </div>
+
 </body>
+
 </html>
