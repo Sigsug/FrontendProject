@@ -1,3 +1,5 @@
+//Test
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const flightForm = document.getElementById("newFlightForm");
