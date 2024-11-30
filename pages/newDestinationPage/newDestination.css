@@ -131,6 +131,7 @@ th {
     font-weight: var(--font-weight-medium);
 }
 
+
 td {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
@@ -421,3 +422,4 @@ h1 {
     margin-right: 10px;
     z-index: 1;
 }
+
