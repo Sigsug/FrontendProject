@@ -4,33 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Destination</title>
-    <link rel="stylesheet" href="../CSS/OnoAir.css">
-    <a href="index.html"><div class="header">OnoAir</div></a>
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="./newDestination.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <header>
+        <a href="../../index.html"><div class="header">OnoAir</div></a>
+    </header>
+    
     <div class="container">
         <h1>New Destination</h1>
-        <form>
-            <label>Destination code:</label>
-            <input type="text" name="dest_code">
-            <br />
-            <label>Destination name:</label>
-            <input type="text" name="dest_name">
-            <br />
-            <label>Airport name:</label>
-            <input type="text" name="airport_name">
-            <br />
-            <label>Airport url:</label>
-            <input type="text" name="airport_url">
-            <br />
-            <label>Image url:</label>
-            <input type="text" name="image_url">
-            <br />
-            <input type="submit" value="Save">
+        <form id="destinationForm">
+            <div class="form-group">
+                <label for="dest_code">Destination code:</label>
+                <input type="text" id="dest_code" name="dest_code" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dest_name">Destination name:</label>
+                <input type="text" id="dest_name" name="dest_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="airport_name">Airport name:</label>
+                <input type="text" id="airport_name" name="airport_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="airport_url">Airport url:</label>
+                <input type="text" id="airport_url" name="airport_url" required>
+            </div>
+
+            <div class="form-group">
+                <label for="image_url">Image url:</label>
+                <input type="text" id="image_url" name="image_url" required>
+            </div>
+
+            <button type="submit">Save</button>
         </form>
-        <a href="helpPage.html"><div class="footer">
-            <p>&#x2753;</p>
-        </div></a>
     </div>
+
+    <footer>
+        <a href="helpPage.html">
+            <div class="footer">
+                <p>&#x2753;</p>
+            </div>
+        </a>
+    </footer>
+
+    <!-- Load JavaScript files in the correct order -->
+    <script src="../../entities/destination.js"></script>
+    <script src="../../services/destinationService.js"></script>
+    <script src="./newDestination.js"></script>
+    <script>
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            new NewDestination();
+        });
+    </script>
 </body>
 </html>
