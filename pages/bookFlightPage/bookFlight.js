@@ -27,13 +27,13 @@ class BookFlight {
 
         // Populate origin select
         origins.forEach(city => {
-            const option = new Option(city, city.toLowerCase());
+            const option = new Option(city.name, city.name.toLowerCase());
             this.originSelect.add(option);
         });
 
         // Populate destination select
         destinations.forEach(city => {
-            const option = new Option(city, city.toLowerCase());
+            const option = new Option(city.name, city.name.toLowerCase());
             this.destinationSelect.add(option);
         });
     }
