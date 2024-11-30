@@ -1,5 +1,4 @@
 import { FlightDataService } from '../../services/flightDataService.js';
-import { Flight } from '../../entities/flight.js';
 
 export class FlightManager {
     constructor() {
@@ -31,14 +30,8 @@ export class FlightManager {
                 <td>${flight.arrivalTime}</td>
                 <td>${flight.availableSeats}</td>
                 <td class="actions">
-                    <button class="action-btn edit-btn" data-flight-id="${flight.id}">
-                        <i class="fas fa-edit"></i>
-                    </button>
                     <button class="action-btn delete-btn" data-flight-id="${flight.id}">
                         <i class="fas fa-trash-alt"></i>
-                    </button>
-                    <button class="action-btn view-btn" data-flight-id="${flight.id}">
-                        <i class="fas fa-eye"></i>
                     </button>
                 </td>
             `;
@@ -53,18 +46,10 @@ export class FlightManager {
 
             const flightId = target.dataset.flightId;
             
-            if (target.classList.contains('edit-btn')) {
-                this.editFlight(flightId);
-            } else if (target.classList.contains('delete-btn')) {
+            if (target.classList.contains('delete-btn')) {
                 this.deleteFlight(flightId);
-            } else if (target.classList.contains('view-btn')) {
-                this.viewFlightDetails(flightId);
             }
         });
-    }
-
-    editFlight(flightId) {
-        window.location.href = `editFlight.html?id=${flightId}`;
     }
 
     async deleteFlight(flightId) {
@@ -83,10 +68,6 @@ export class FlightManager {
                 this.renderFlights();
             }
         }
-    }
-
-    viewFlightDetails(flightId) {
-        window.location.href = `flightDetails.html?id=${flightId}`;
     }
 
     refreshTable() {

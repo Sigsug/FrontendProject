@@ -242,3 +242,29 @@ th:nth-child(4), td:nth-child(4) {
     transform: none;
     box-shadow: none;
 }
+
+/* Button Styles */
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: #86ab35;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.table-controls {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
