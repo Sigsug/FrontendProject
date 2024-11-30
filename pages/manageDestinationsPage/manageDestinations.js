@@ -14,13 +14,9 @@ export class DestinationListUI {
 
     setupEventListeners() {
         this.tableBody.addEventListener('click', (e) => {
-            if (e.target.classList.contains('delete-btn')) {
+            if (e.target.classList.contains('book-button')) {
                 const id = parseInt(e.target.dataset.id);
                 this.handleDelete(id);
-            }
-            if (e.target.classList.contains('edit-btn')) {
-                const id = parseInt(e.target.dataset.id);
-                this.handleEdit(id);
             }
         });
     }
@@ -41,8 +37,7 @@ export class DestinationListUI {
                     </a>
                 </td>
                 <td class="actions">
-                    <button class="edit-btn" data-id="${destination.id}">Edit</button>
-                    <button class="delete-btn" data-id="${destination.id}">Delete</button>
+                    <button class="book-button" data-id="${destination.id}">Delete</button>
                 </td>
             </tr>
         `;
@@ -55,10 +50,6 @@ export class DestinationListUI {
                 this.showNotification('Destination deleted successfully');
             }
         }
-    }
-
-    handleEdit(id) {
-        window.location.href = `editDestination.html?id=${id}`;
     }
 
     showNotification(message) {

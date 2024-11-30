@@ -41,3 +41,6 @@ class NewDestination {
         setTimeout(() => message.remove(), 3000);
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    new NewDestination();
+});
