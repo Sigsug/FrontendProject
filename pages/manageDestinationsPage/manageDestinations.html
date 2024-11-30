@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../CSS/OnoAir.css">
-    <a href="../../index.html"><div class="header">OnoAir</div></a>
+    <title>Manage Destinations - OnoAir</title>
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../static/css/help.css">
+    <link rel="stylesheet" href="./manageDestinations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
-    <div class="container">
-        <h1>Manage Destinations</h1>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Airport Name</th>
-                    <th>Airport website</th>
-                    <th>...</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Tel Aviv </td>
-                    <td>Ben Gurion Airport</td>
-                    <td>https://www.iaa.gov.il/en/</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>New York</td>
-                    <td>John F. Kennedy International Airport</td>
-                    <td>https://www.jfkairport.com/</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <br />
-        <a href="newDestination.html">
-            <button onclick="addDest()">Add Destination</button>
-        </a>
-        <a href="helpPage.html"><div class="footer">
-            <p>&#x2753;</p>
-        </div></a>
-    </div>
-</body>
+    <header>
+        <a href="../../index.html"><div class="header">OnoAir</div></a>
+    </header>
 
+    <main class="container">
+        <h1>Manage Destinations</h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Airport Name</th>
+                        <th>Airport Website</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="actions-container">
+            <a href="../newDestinationPage/newDestination.html" class="button">Add Destination</a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="helpPage.html">
+            <div class="footer">
+                <p>&#x2753;</p>
+            </div>
+        </a>
+    </footer>
+
+    <script src="../../data/dummyData.js"></script>
+    <script src="../../services/manageDestinationService.js"></script>
+    <script src="./manageDestinations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new DestinationListUI();
+        });
+    </script>
+</body>
 </html>
