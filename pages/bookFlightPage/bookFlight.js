@@ -90,6 +90,8 @@ class BookFlight {
                 
                 // Re-render to update available seats
                 this.handleFilters();
+                window.location.href = '../newFlightPage/newFlight.html';
+
             }
         } else {
             alert('Sorry, this flight is fully booked.');

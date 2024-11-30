@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Search functionality
-    const searchInput = document.querySelector('.search-box input');
+    const searchInput = document.querySelector('#searchInput');
     
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Live Chat Button
-    const chatButton = document.querySelector('.contact-card button');
+    const chatButton = document.querySelector('#chatButton');
     
     chatButton.addEventListener('click', () => {
         alert('Live chat feature coming soon!');

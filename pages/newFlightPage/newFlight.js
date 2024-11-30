@@ -69,7 +69,7 @@ class NewFlightForm {
         }
 
         // Validate booking date
-        const selectedDate = new Date(formData.get('boardingDate'));
+        const selectedDate = new Date(`${formData.get('boardingDate')} ${formData.get('boardingTime')}`);
         const today = new Date();
         if (selectedDate < today) {
             throw new Error('Cannot book flights in the past');
@@ -77,8 +77,7 @@ class NewFlightForm {
 
         // Validate times
         const departureTime = new Date(`${formData.get('boardingDate')} ${formData.get('boardingTime')}`);
-        const arrivalTime = new Date(`${formData.get('boardingDate')} ${formData.get('arrivalTime')}`);
-        
+        const arrivalTime = new Date(`${formData.get('arrivalDate')} ${formData.get('arrivalTime')}`);
         if (arrivalTime <= departureTime) {
             throw new Error('Arrival time must be after departure time');
         }
