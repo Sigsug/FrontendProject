@@ -22,8 +22,10 @@ export class FlightBookingUI {
         this.saveButton = document.querySelector('.save-button');
         
         // Flight details elements
-        this.originElement = document.querySelector('.flight-details p:first-child');
-        this.destinationElement = document.querySelector('.flight-details p:last-child');
+        this.originElement = document.querySelector('.flight-details p:nth-child(1)');
+        this.destinationElement = document.querySelector('.flight-details p:nth-child(2)');
+        this.boardingElement = document.querySelector('.flight-details p:nth-child(3)');
+        this.landingElement = document.querySelector('.flight-details p:nth-child(4)');
         
         // Passenger info section and title
         this.passengerInfoSection = document.querySelector('.passenger-info');
@@ -61,8 +63,10 @@ export class FlightBookingUI {
 
     updateFlightDisplay() {
         if (this.currentFlight) {
-            this.originElement.innerHTML = `<strong>Origin:</strong> ${this.currentFlight.origin} <strong>Boarding:</strong> ${this.currentFlight.date} ${this.currentFlight.departureTime}`;
-            this.destinationElement.innerHTML = `<strong>Destination:</strong> ${this.currentFlight.destination} <strong>Landing:</strong> ${this.currentFlight.date} ${this.currentFlight.arrivalTime}`;
+            this.originElement.innerHTML = `<strong>Origin:</strong> ${this.currentFlight.origin}`;
+            this.destinationElement.innerHTML = `<strong>Destination:</strong> ${this.currentFlight.destination}`;
+            this.boardingElement.innerHTML = `<strong>Boarding:</strong> ${this.currentFlight.date} ${this.currentFlight.departureTime}`;
+            this.landingElement.innerHTML = `<strong>Landing:</strong> ${this.currentFlight.date} ${this.currentFlight.arrivalTime}`;
         }
     }
 

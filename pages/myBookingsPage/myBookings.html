@@ -1,19 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookings</title>
-    <link rel="stylesheet" href="../CSS/OnoAir.css">
-    <a href="../../index.html"><div class="header">OnoAir</div></a>
+    <title>Book a Flight - OnoAir</title>
+    <link rel="stylesheet" href="./myBooking.css">
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../static/css/help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
+    <a href="../../index.html" class="header-link">
+        <div class="header">OnoAir</div>
+    </a>
+
     <div class="container">
-    <h2 style="text-align: center;">Book a flight</h2>
+        <h2>Book a Flight</h2>
+        
+        <div class="search-section card">
+            <form id="flightSearchForm" class="search-form">
+                <div class="form-group">
+                    <label for="origin">From:</label>
+                    <select id="origin" name="origin" required>
+                        <option value="">Select Origin</option>
+                    </select>
+                </div>
 
-</div>
+                <div class="form-group">
+                    <label for="destination">To:</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select Destination</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <button type="submit" class="button search-btn">
+                    <i class="fas fa-search"></i> Search Flights
+                </button>
+            </form>
+        </div>
+
+        <div id="availableFlights" class="flights-section">
+            <h3>Available Flights</h3>
+            <div id="flightsList" class="flights-list">
+            </div>
+        </div>
+
+        <div id="bookingSection" class="booking-section card" style="display: none;">
+            <h3>Passenger Details</h3>
+            <form id="bookingForm">
+                <div id="passengerForms">
+                    <div class="passenger-form">
+                        <h4>Passenger 1</h4>
+                        <div class="form-group">
+                            <label for="passengerName1">Full Name:</label>
+                            <input type="text" id="passengerName1" name="passengerName1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passportId1">Passport ID:</label>
+                            <input type="text" id="passportId1" name="passportId1" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="booking-actions">
+                    <button type="button" id="addPassenger" class="button secondary-btn">
+                        <i class="fas fa-plus"></i> Add Another Passenger
+                    </button>
+                    
+                    <button type="submit" class="button primary-btn">
+                        <i class="fas fa-check"></i> Complete Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="confirmationSection" class="confirmation-section card" style="display: none;">
+            <h3>Booking Confirmed!</h3>
+            <div id="bookingDetails" class="booking-details">
+            </div>
+            <div class="confirmation-actions mt-2">
+                <a href="./myBooking.html" class="button secondary-btn">
+                    <i class="fas fa-search"></i> Book Another Flight
+                </a>
+                <a href="../../index.html" class="button primary-btn">
+                    <i class="fas fa-home"></i> Return to Homepage
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="../helpPage/helpPage.html">
+            <div class="footer">
+                <p>&#x2753;</p>
+            </div>
+        </a>
+    </footer>
+    <script type="module" src="./myBooking.js"></script>
 </body>
-
 </html>

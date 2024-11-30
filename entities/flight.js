@@ -1,4 +1,3 @@
-// Flight.js
 export class Flight {
     constructor(data) {
         this.id = data.id;

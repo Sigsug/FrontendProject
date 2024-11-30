@@ -58,7 +58,7 @@ const DUMMY_FLIGHTS = {
             aircraft: 'Airbus A320',
             airline: 'Wizz Air',
             status: 'Scheduled',
-            date: '2024-07-16'
+            date: '2025-07-16'
         },
         {
             id: 'LX8396',
@@ -75,7 +75,7 @@ const DUMMY_FLIGHTS = {
             aircraft: 'Boeing 737-800',
             airline: 'Swiss International Air Lines',
             status: 'Scheduled',
-            date: '2024-07-16'
+            date: '2025-07-16'
         },
         {
             id: 'W61284',
@@ -92,7 +92,7 @@ const DUMMY_FLIGHTS = {
             aircraft: 'Airbus A320',
             airline: 'Wizz Air',
             status: 'Scheduled',
-            date: '2024-07-16'
+            date: '2025-07-16'
         },
         {
             id: 'LX8397',
@@ -109,7 +109,7 @@ const DUMMY_FLIGHTS = {
             aircraft: 'Boeing 737-800',
             airline: 'Swiss International Air Lines',
             status: 'Scheduled',
-            date: '2024-07-16'
+            date: '2025-07-16'
         }
     ],
     
