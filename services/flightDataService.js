@@ -1,4 +1,3 @@
-// FlightDataService.js
 import { Flight } from '../entities/flight.js';
 import { DUMMY_FLIGHTS } from '../data/dummyData.js';
 

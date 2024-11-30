@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OnoAir - Book a Flight</title>
-  <link rel="stylesheet" href="../CSS/OnoAir.css">
-  <a href="index.html"><div class="header">OnoAir</div></a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - Book a Flight</title>
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../static/css/help.css">
+    <link rel="stylesheet" href="./flightOrder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="module" src="./flightOrder.js"></script>
 </head>
 <body>
+    <header>
+        <a href="../../index.html">
+            <div class="header">OnoAir</div>
+        </a>
+    </header>
 
-<div class="container">
-  <h2 style="text-align: center;">Book a flight</h2>
+    <div class="container">
+        <h2 style="text-align: center;">Book a Flight</h2>
 
-  <div class="flight-details">
-    <p><strong>Origin:</strong> Tel Aviv <strong>Boarding:</strong> 16/7/2025 20:00</p>
-    <p><strong>Destination:</strong> Krakow <strong>Landing:</strong> 17/7/2025 01:00</p>
-  </div>
+        <div class="flight-details" id="flight-info">
+            <div class="origin-info">
+                <p>
+                    <strong>Origin:</strong> <span id="origin-city"></span>
+                    <strong>Boarding:</strong> <span id="departure-time"></span>
+                </p>
+            </div>
+            <div class="destination-info">
+                <p>
+                    <strong>Destination:</strong> <span id="destination-city"></span>
+                    <strong>Landing:</strong> <span id="arrival-time"></span>
+                </p>
+            </div>
+        </div>
 
-  <div class="passenger-info">
-    <label for="passenger-number">No of passengers:</label>
-    <input type="number" id="passenger-number" name="passenger-number" value="5" readonly>
-    
-    <p><strong>Passenger 1</strong></p>
-    <label for="passenger-name">Name:</label>
-    <input type="text" id="passenger-name" name="passenger-name" placeholder="Enter name">
-    <br><br>
-    <label for="passport-id">Passport ID:</label>
-    <input type="text" id="passport-id" name="passport-id" placeholder="Enter passport ID">
-  </div>
+        <div class="booking-progress">
+            <p>Booking Progress: <span id="current-passenger">1</span>/<span id="total-passengers">5</span></p>
+        </div>
 
-  <button class="save-button">Save</button>
+        <form id="passenger-form" class="passenger-info">
+            <div class="passengers-count">
+                <label for="passenger-number">Number of passengers:</label>
+                <input type="number" 
+                       id="passenger-number" 
+                       name="passenger-number" 
+                       value="5" 
+                       readonly>
+            </div>
+            
+            <div class="passenger-details">
+                <h3><strong>Passenger <span id="passenger-index">1</span></strong></h3>
+                
+                <div class="form-group">
+                    <label for="passenger-name">Name:</label>
+                    <input type="text" 
+                           id="passenger-name" 
+                           name="passenger-name" 
+                           placeholder="Enter name"
+                           required
+                           data-validation="name">
+                    <span class="error-message" id="name-error"></span>
+                </div>
 
-  <a href="helpPage.html"><div class="footer">
-    <p>&#x2753;</p>
-</div></a>
-</div>
+                <div class="form-group">
+                    <label for="passport-id">Passport ID:</label>
+                    <input type="text" 
+                           id="passport-id" 
+                           name="passport-id" 
+                           placeholder="Enter passport ID"
+                           required
+                           data-validation="passport">
+                    <span class="error-message" id="passport-error"></span>
+                </div>
+            </div>
 
+            <button type="submit" 
+                    class="save-button" 
+                    id="save-passenger"
+                    disabled>
+                Save Passenger
+            </button>
+        </form>
+
+        <div id="booking-status" class="status-message" style="display: none;">
+            <!-- Status messages will be inserted here -->
+        </div>
+
+        <footer>
+            <a href="../helpPage/helpPage.html">
+                <div class="footer">
+                    <p>&#x2753;</p>
+                </div>
+            </a>
+        </footer>
+    </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 import { FlightDataService } from '../../services/flightDataService.js';
 
-export class BookFlight {
+class BookFlight {
     constructor() {
         this.dataService = new FlightDataService();
         this.dataService.initializeData();
@@ -96,3 +96,4 @@ export class BookFlight {
         }
     }
 }
+new BookFlight();

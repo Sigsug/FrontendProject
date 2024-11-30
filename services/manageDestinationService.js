@@ -1,4 +1,6 @@
-class ManageDestinationService  {
+import { DUMMY_DESTINATIONS } from '../data/dummyData.js';
+
+export class ManageDestinationService  {
     constructor() {
         this.destinations = [...DUMMY_DESTINATIONS];
     }

@@ -1,4 +1,6 @@
-class DestinationListUI {
+import { ManageDestinationService } from '../../services/manageDestinationService.js';
+
+export class DestinationListUI {
     constructor() {
         this.service = new ManageDestinationService();
         this.tableBody = document.querySelector('tbody');
@@ -67,3 +69,4 @@ class DestinationListUI {
         setTimeout(() => notification.remove(), 3000);
     }
 }
+new DestinationListUI()

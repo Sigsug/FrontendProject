@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="../../static/css/help.css">
     <link rel="stylesheet" href="./bookFlight.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <a href="../../index.html"><div class="header">OnoAir</div></a>
 </head>
 
 <body>
+    <a href="../../index.html">
+        <div class="header">OnoAir</div>
+    </a>
 
     <div class="container">
         <h2 style="text-align: center;">Book a flight</h2>
@@ -22,15 +24,11 @@
             <label for="origin">Origin:</label>
             <select id="origin" name="origin">
                 <option value="" disabled selected>Select a city</option>
-                <option value="tel-aviv">Tel Aviv</option>
-                <option value="larnaca">Larnaca</option>
             </select>
             <br><br>
             <label for="destination">Destination:</label>
             <select id="destination" name="destination">
                 <option value="" disabled selected>Select a city</option>
-                <option value="krakow">Krakow</option>
-                <option value="zurich">Zurich</option>
             </select>
         </div>
 
@@ -40,36 +38,34 @@
                     <th>Flight No.</th>
                     <th>Origin</th>
                     <th>Destination</th>
-                    <th>...</th>
+                    <th>Details</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>W61283</td>
-                    <td>Tel Aviv</td>
-                    <td>Krakow</td>
-                    <td><button class="book-button">Book</button></td>
-                </tr>
-                <tr>
-                    <td>LX8396</td>
-                    <td>Larnaca</td>
-                    <td>Zurich</td>
-                    <td><button class="book-button">Book</button></td>
-                </tr>
+                <!-- Flight data will be populated by JavaScript -->
             </tbody>
         </table>
 
-        <a href="helpPage.html"><div class="footer">
-            <p>&#x2753;</p>
-        </div></a>
-    </div>
-    <script type="module" src="./bookFlight.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            new BookFlight();
-        });
-    </script>
+        <!-- Loading state -->
+        <div id="loading-state" class="loading-state hidden">
+            <i class="fas fa-spinner fa-spin"></i>
+            Loading flights...
+        </div>
 
+        <!-- No results state -->
+        <div id="no-results" class="no-results hidden">
+            <i class="fas fa-search"></i>
+            No flights found matching your criteria
+        </div>
+
+        <a href="helpPage.html">
+            <div class="footer">
+                <p>&#x2753;</p>
+            </div>
+        </a>
+    </div>
+
+    <script type="module" src="bookFlight.js"></script>
 </body>
 
 </html>
