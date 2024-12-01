@@ -32,6 +32,15 @@ label {
     color: var(--text-color);
 }
 
+.container {
+    margin-top: 5rem;
+    padding-top: 2rem;
+}
+
+body {
+    font-family: 'Rubik', 'ploni', sans-serif;
+}
+
 /* Updated error message styles */
 .error-message {
     font-family: var(--font-family);
@@ -147,6 +156,7 @@ form {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     margin: 0 auto;
+    padding-right: 5rem;
 }
 
 /* Button Styles */
@@ -299,9 +309,10 @@ button[type="submit"].loading::after {
     padding-right: 2.5rem !important;
 }
 h1 {
-    font-family: var(--font-family);
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .invalid:focus {

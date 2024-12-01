@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Rubik', 'ploni', sans-serif;
     background: var(--bg-light);
     color: var(--text-color);
 }
