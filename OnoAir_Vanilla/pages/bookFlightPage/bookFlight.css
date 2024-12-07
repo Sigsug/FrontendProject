@@ -1,0 +1,205 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #98c13d;
+    --text-color: #595959;
+    --border-color: #e4e6ef;
+    --hover-color: #0051C2;
+    --bg-light: #f8f9fa;
+    --input-bg: white;
+}
+
+body {
+    font-family: 'Rubik', 'ploni', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-light);
+}
+
+.container {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 6rem auto 2rem auto;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Filter Section Styles */
+.filter-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.filter-section label {
+    display: block;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.filter-section select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: var(--input-bg);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23595959' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.filter-section select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(152, 193, 61, 0.2);
+}
+
+.filter-section select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* Table Styles */
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+tbody tr {
+    transition: all 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+tbody tr:hover {
+    background-color: rgba(152, 193, 61, 0.1);
+}
+
+/* Book Button Styles */
+.book-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.book-button:hover {
+    background-color: #86ab35;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.book-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .filter-section {
+        padding: 1.5rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        display: block;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    .book-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .filter-section {
+        padding: 1rem;
+    }
+
+    .filter-section select {
+        padding: 0.625rem;
+        font-size: 0.9rem;
+    }
+}

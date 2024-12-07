@@ -1,0 +1,193 @@
+/* Flight Booking Styles based on OnoAir Design System */
+
+:root {
+    /* Primary Colors */
+    --primary-color: #2c3e50;    
+    --accent-color: #98c13d;     
+    
+    /* Text Colors */
+    --text-color: #595959;       
+    
+    /* UI Colors */
+    --border-color: #e4e6ef;     
+    --hover-color: #0051C2;      
+    --bg-light: #f8f9fa;         
+    --input-bg: white;           
+    --error-color: #dc3545;      
+    --accent-hover: #86ab35;     
+}
+
+body {
+    font-family: 'Rubik', 'ploni', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+/* Flight Details Section */
+.flight-details {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.flight-details p {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flight-details strong {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* Passenger Info Section */
+.passenger-info {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.passenger-info h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: var(--input-bg);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(152, 193, 61, 0.2);
+}
+
+input[readonly] {
+    background-color: var(--bg-light);
+    cursor: not-allowed;
+}
+
+/* Save Button */
+.save-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.save-button:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.save-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Error Messages */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+/* Status Message */
+#booking-status {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#booking-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#booking-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .flight-details, 
+    .passenger-info {
+        padding: 1rem;
+    }
+
+    .save-button {
+        padding: 0.75rem 1.5rem;
+    }
+
+    input {
+        padding: 0.625rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flight-details p {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    .container {
+        padding: 0.75rem;
+    }
+}

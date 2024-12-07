@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnoAir - Book a Flight</title>
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../static/css/help.css">
+    <link rel="stylesheet" href="./bookFlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <a href="../../index.html">
+        <div class="header">OnoAir</div>
+    </a>
+
+    <div class="container">
+        <h2 style="text-align: center;">Book a flight</h2>
+
+        <div class="filter-section">
+            <label for="origin">Filter by:</label><br>
+            <label for="origin">Origin:</label>
+            <select id="origin" name="origin">
+                <option value="" disabled selected>Select a city</option>
+            </select>
+            <br><br>
+            <label for="destination">Destination:</label>
+            <select id="destination" name="destination">
+                <option value="" disabled selected>Select a city</option>
+            </select>
+        </div>
+
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th>Flight No.</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Flight data will be populated by JavaScript -->
+            </tbody>
+        </table>
+
+        <a href="../helpPage/helpPage.html">
+            <div class="footer">
+                <p>&#x2753;</p>
+            </div>
+        </a>
+    </div>
+
+    <script type="module" src="bookFlight.js"></script>
+</body>
+
+</html>

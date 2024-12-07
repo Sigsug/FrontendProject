@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Flights</title>
+    <link rel="stylesheet" href="../../static/css/header.css">
+    <link rel="stylesheet" href="../../static/css/help.css">
+    <link rel="stylesheet" href="./manageFlights.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="header-link">
+        <div class="header">OnoAir</div>
+    </a>
+
+    <div class="container">
+        <h1>Manage Flights</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Flight No.</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Available Seats</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Flight data will be dynamically inserted here by JavaScript -->
+            </tbody>
+        </table>
+        
+        <div class="table-controls">
+            <a href="../newFlightPage/newFlight.html" class="add-flight-btn">
+                <button class="primary-btn">
+                    <i class="fas fa-plus"></i> Add New Flight
+                </button>
+            </a>
+        </div>
+
+    </div>
+    <footer>
+        <a href="../helpPage/helpPage.html">
+            <div class="footer">
+                <p>&#x2753;</p>
+            </div>
+        </a>
+    </footer>
+
+    <script type="module" src="./manageFlights.js"></script>
+</body>
+
+</html>
