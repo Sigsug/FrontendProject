@@ -1,34 +1,32 @@
 /* Footer background and general styling */
 .footer {
-    background-color: #12262f; /* Dark background color */
-    color: #fff; /* Light text color */
-    display: flex; /* Enable flexbox for alignment */
-    justify-content: space-between; /* Space out text and image */
-    align-items: center; /* Vertically center items */
+    background-color: #12262f;
+    color: #fff;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     padding: 10px;
-    height: auto; /* Adjust height based on content */
+    height: auto;
   } 
-  
+ 
   /* Footer image styling */
   .footer-image {
-    max-width: 15%; /* Adjust width to fit within the footer */
-    height: auto; /* Maintain aspect ratio */
-    align-self: flex-end; /* Align the image to the bottom if needed */
-    margin-left: auto; /* Push the image to the far right */
-    cursor: pointer; /* Indicate clickability */
+    max-width: 10%;
+    height: auto;
+    width: 100px;
+    cursor: pointer;
   }
   
-  /* Responsive design for smaller screens */
   @media (max-width: 768px) {
     .footer {
-      flex-direction: column; /* Stack items vertically */
-      text-align: center; /* Center-align text */
+      flex-direction: column;
+      text-align: center;
     }
   
     .footer-image {
-      max-width: 30%; /* Adjust image size for smaller screens */
-      margin-left: 0; /* Reset left margin */
-      margin-top: 10px; /* Add spacing from text */
+      max-width: 30%;
+      margin-left: 0;
+      margin-top: 10px;
     }
   }
   

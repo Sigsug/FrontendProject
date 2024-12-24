@@ -7,6 +7,10 @@ header {
     background-color: #12262f;
   }
   
+.toolbar {
+    background-color: transparent;
+  }
+
   .site-logo {
     width: 100px;
     height: auto;
