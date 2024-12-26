@@ -1,77 +1,41 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
-
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
+import {AfterViewInit, Component, NgModule, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { Flights } from '../../model/flights';
+import { MatTableModule } from '@angular/material/table';
+import { DatePipe } from '@angular/common';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-search-flight',
-  styleUrls: ['search-flight.component.css'],
-  templateUrl: 'search-flight.component.html',
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule],
+  templateUrl: './search-flight.component.html',
+  styleUrls: ['./search-flight.component.css'],
+  imports: [MatTableModule, MatPaginatorModule],
+  providers: [DatePipe]
 })
-export class SearchflightComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+export class SearchFlightComponent implements AfterViewInit {
+  dataSource: MatTableDataSource<Flights>;
+  displayedColumns: string[] = ['id', 'from', 'to', 'departure', 'return'];
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  flights = [
+    new Flights(123, "London", "New York", new Date(), new Date(), 2),
+    new Flights(222, "Tel-Aviv", "Amsterdam", new Date(), new Date(), 3),
+  ];
+
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor() {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new MatTableDataSource(this.flights);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+  ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -79,20 +43,4 @@ export class SearchflightComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-  };
 }
