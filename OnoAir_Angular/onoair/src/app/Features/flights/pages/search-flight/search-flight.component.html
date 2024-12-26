@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Find a Flight</h1>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 full-width-table">
+
+      <!-- Flight No. Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Flight No. </th>
+        <td mat-cell *matCellDef="let flight"> {{flight.id}} </td>
+      </ng-container>
+
+      <!-- Origin Column -->
+      <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Origin </th>
+        <td mat-cell *matCellDef="let flight"> {{flight.from}} </td>
+      </ng-container>
+
+      <!-- Destination Column -->
+      <ng-container matColumnDef="to">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination </th>
+        <td mat-cell *matCellDef="let flight"> {{flight.to}} </td>
+      </ng-container>
+
+      <!-- Depart Column -->
+      <ng-container matColumnDef="departure">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Depart </th>
+        <!-- <td mat-cell *matCellDef="let flight"> {{flight.departure | date:'short'}} </td> -->
+      </ng-container>
+
+      <!-- Return Column -->
+      <ng-container matColumnDef="return">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Return </th>
+        <!-- <td mat-cell *matCellDef="let flight"> {{flight.return | date}} </td> -->
+      </ng-container>
+
+      <!-- Book Column
+      <ng-container matColumnDef="book">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Book a Flight </th>
+      </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

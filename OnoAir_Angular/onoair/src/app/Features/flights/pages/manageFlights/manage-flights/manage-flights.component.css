@@ -1,0 +1,55 @@
+.full-width-table {
+    width: 100%;
+  }
+  
+  .table-controls {
+    margin-top: 16px;
+  }
+  
+  .add-flight-btn {
+    text-decoration: none;
+  }
+  
+  .primary-btn {
+    background-color: #38a76a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .primary-btn i {
+    margin-right: 8px;
+  }
+
+  .mat-mdc-table {
+    width: 100%;
+    background-color: darkcyan;
+  }
+
+  .primary-btn {
+    background-color: #38a76a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .primary-btn i {
+    margin-right: 8px;
+  }
+  
+  .mat-mdc-table {
+    width: 100%;
+    background-color: darkcyan;
+  }
+  
+  .table-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .add-flight-btn {
+    text-decoration: none;
+  }

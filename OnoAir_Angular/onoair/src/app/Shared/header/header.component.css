@@ -1,13 +1,16 @@
 header {
     flex: 1 1 auto;
-    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: #12262f;
   }
   
+.toolbar {
+    background-color: transparent;
+  }
+
   .site-logo {
     width: 100px;
     height: auto;

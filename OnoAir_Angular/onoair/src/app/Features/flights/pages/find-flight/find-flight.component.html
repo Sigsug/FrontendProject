@@ -1,0 +1,39 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="from">From:</label>
+    <select id="from" formControlName="from">
+      <option *ngFor="let airport of airports" [value]="airport.code">{{ airport.name }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="to">To:</label>
+    <select id="to" formControlName="to">
+      <option *ngFor="let airport of airports" [value]="airport.code">{{ airport.name }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="departure">Departure:</label>
+    <input id="departure" type="date" formControlName="departure">
+  </div>
+  <div>
+    <label for="return">Return:</label>
+    <input id="return" type="date" formControlName="return">
+  </div>
+  <div>
+    <label for="passengers">Passengers:</label>
+    <input id="passengers" type="number" formControlName="passengers" min="1">
+  </div>
+  <button type="submit" [disabled]="searchForm.invalid">Search</button>
+</form>
+
+<h3>Last minute flights</h3>
+<div>The system has {{flights.length}} flights</div>
+
+<div *ngIf="flights.length > 0">
+  <h3>Available Flights</h3>
+  <ul>
+    <!-- <li *ngFor="let flights of flights">
+      {{ flights.from }} to {{ flights.to }} on {{ flights.departureDate | date }} with {{ flights.passengers }} passengers
+    </li> -->
+  </ul>
+</div>
