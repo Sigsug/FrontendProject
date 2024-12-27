@@ -1,0 +1,4 @@
+.mdc-card__media:first-child {
+        width: 100px;
+        height: auto;
+    }

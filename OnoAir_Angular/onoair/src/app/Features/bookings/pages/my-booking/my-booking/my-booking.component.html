@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>My Bookings</h1>
+    <div *ngFor="let booking of bookings" class="booking-card">
+      <mat-card>
+        <img mat-card-image [src]="booking.ImageUrl" alt="Destination Image">
+        <mat-card-content>
+          <p><strong>Order ID:</strong> {{booking.OrderId}}</p>
+          <p><strong>Flight ID:</strong> {{booking.FlightId}}</p>
+          <p><strong>Passengers:</strong> {{booking.Passenger}}</p>
+          <p><strong>Passenger Names:</strong> {{booking.PassengerNames.join(', ')}}</p>
+          <p><strong>Passports:</strong> {{booking.Passports.join(', ')}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="viewBooking(booking.OrderId)">View Booking</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
