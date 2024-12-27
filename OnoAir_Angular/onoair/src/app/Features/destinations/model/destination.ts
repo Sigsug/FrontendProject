@@ -4,6 +4,7 @@ export class Destination {
         public dest_name: string,
         public airport_name: string,
         public airport_url: string,
-        public image_url: string,
+        public airport_email: string,
+        public image_url: string
     ) { }   
 }
