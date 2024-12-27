@@ -1,55 +1,12 @@
-// import { Component, OnInit } from '@angular/core';
-// import { NgModule } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatInputModule } from '@angular/material/input';
-// import { MatSelectModule } from '@angular/material/select';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatNativeDateModule } from '@angular/material/core';
-// import { FlightsService } from '../../service/flights.service';
-// import { Flights } from '../../model/flights';
-// import { RouterModule } from '@angular/router';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
-// @Component({
-//   selector: 'app-find-flight',
-//   imports: [
-//       FormsModule,
-//       MatFormFieldModule,
-//       MatInputModule,
-//       MatSelectModule,
-//       MatButtonModule,
-//       MatDatepickerModule,
-//       RouterModule,
-//       MatNativeDateModule
-//   ],
-//   templateUrl: './find-flight.component.html',
-//   styleUrl: './find-flight.component.css'
-// })
-// export class FindFlightComponent implements OnInit {
-// flightDetails: any;
-// onSearch() {
-// throw new Error('Method not implemented.');
-// }
-//   flight: Flights[] = [];
-//   constructor(private flightsService: FlightsService) { }
-//   ngOnInit(): void {
-//     this.flight = this.flightsService.list();
-//   }
-// }
-
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { FlightsService } from '../../service/flights.service';
 import { Flights } from '../../model/flights';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -58,50 +15,43 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./find-flight.component.css'],
   standalone: true,
   imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
+    CommonModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatButtonModule,
-    MatCardModule,
-    CommonModule
+    RouterModule
   ]
 })
-export class FindFlightComponent implements OnInit {
+export class FindFlightComponent implements OnInit, AfterViewInit {
+  dataSource: MatTableDataSource<Flights>;
+  displayedColumns: string[] = ['origin', 'destination', 'departureDateTime', 'returnDateTime', 'book'];
   flights: Flights[] = [];
-  searchForm: FormGroup = new FormGroup({});
-  airports = [
-    { code: 'JFK', name: 'New York JFK' },
-    { code: 'LAX', name: 'Los Angeles' },
-    { code: 'LHR', name: 'London Heathrow' }
-  ];
 
-  constructor(private flightsService: FlightsService, private fb: FormBuilder) {
-    this.searchForm = this.fb.group({
-      from: ['', Validators.required],
-      to: ['', Validators.required],
-      departure: ['', Validators.required],
-      return: [''],
-      passengers: [1, [Validators.required, Validators.min(1)]]
-    });
+  @ViewChild(MatSort) sort: MatSort | undefined;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
+  constructor(private flightsService: FlightsService, private router: Router) {
+    this.dataSource = new MatTableDataSource(this.flights);
   }
   ngOnInit(): void {
-    this.flightsService.getFlights().subscribe((data: Flights[]) => {
+    this.loadFlights();
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort ?? null;
+    this.dataSource.paginator = this.paginator ?? null;
+  }
+
+  loadFlights(): void {
+    this.flightsService.list().subscribe((data: Flights[]) => {
       this.flights = data;
+      this.dataSource.data = this.flights;
     });
   }
 
-  onSubmit(): void {
-    if (this.searchForm.valid) {
-      const searchCriteria = this.searchForm.value;
-      // Implement the search logic here
-      console.log('Searching for flights with criteria:', searchCriteria);
-      // You can call a service method to search for flights based on the criteria
-    }
+  bookFlight(flightId: number): void {
+    this.router.navigate(['/book-flight', flightId]);
   }
 
-  searchLastMinute() {
-    // Implement last minute search
-  }
 }

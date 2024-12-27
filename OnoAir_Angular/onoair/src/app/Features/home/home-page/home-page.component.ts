@@ -3,10 +3,11 @@ import { SearchFlightComponent } from "../../flights/pages/search-flight/search-
 import { LastMinFlightComponent } from "../../flights/pages/last-min-flight/last-min-flight/last-min-flight.component";
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FindFlightComponent } from "../../flights/pages/find-flight/find-flight.component";
 
 @Component({
   selector: 'app-home-page',
-  imports: [SearchFlightComponent, LastMinFlightComponent, MatExpansionModule, MatFormFieldModule],
+  imports: [LastMinFlightComponent, MatExpansionModule, MatFormFieldModule, FindFlightComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

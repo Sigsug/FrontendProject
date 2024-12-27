@@ -1,10 +1,10 @@
 export class Flights {
     constructor(
         public id: number,
-        public origin: string,
-        public destination: string,
-        public departureDate: Date,
-        public returnDate: Date,
-        public passengers: number
+        public originCode: string,
+        public destinationCode: string,
+        public departureDateTime: Date,
+        public returnDateTime: Date,
+        public numberOfSeats: number
     ) { }   
 }
