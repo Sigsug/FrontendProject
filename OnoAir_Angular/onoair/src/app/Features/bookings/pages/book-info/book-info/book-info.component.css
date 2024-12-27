@@ -1,0 +1,61 @@
+.container {
+    margin: 20px;
+  }
+  
+  mat-card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(253, 253, 253, 0.1);
+    border-radius: 8px;
+  }
+  
+  mat-card-header {
+    background-color: #a7ad94;
+    color: black;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  mat-card-title {
+    font-size: 1.5em;
+  }
+  
+  mat-card-content {
+    padding: 16px;
+  }
+  
+  mat-card-content p {
+    margin: 8px 0;
+  }
+  
+  .passenger-card {
+    margin-top: 20px;
+  }
+  
+  .passenger-card mat-card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .passenger-card mat-card-header {
+    background-color: #a7ad94;
+    color: black;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .passenger-card mat-card-title {
+    font-size: 1.2em;
+  }
+  
+  .passenger-card mat-card-content {
+    padding: 16px;
+  }
+  
+  .passenger-card mat-card-content p {
+    margin: 8px 0;
+  }
+  .mat-mdc-card-content:last-child {
+    padding-bottom: 16px;
+    color: black;
+    background-color: #e1ebc1;
+  }

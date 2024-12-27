@@ -1,0 +1,26 @@
+<div *ngIf="booking">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Booking Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Order ID:</strong> {{booking.OrderId}}</p>
+        <p><strong>Flight ID:</strong> {{booking.FlightId}}</p>
+        <p><strong>Passengers:</strong> {{booking.Passenger}}</p>
+        <p><strong>Passenger Names:</strong> {{booking.PassengerNames.join(', ')}}</p>
+        <p><strong>Passports:</strong> {{booking.Passports.join(', ')}}</p>
+      </mat-card-content>
+    </mat-card>
+  
+    <div *ngFor="let passenger of booking.PassengerNames; let i = index" class="passenger-card">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Passenger {{i + 1}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Name:</strong> {{passenger}}</p>
+          <p><strong>Passport:</strong> {{booking.Passports[i]}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

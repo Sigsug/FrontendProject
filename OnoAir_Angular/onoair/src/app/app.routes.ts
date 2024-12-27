@@ -12,6 +12,7 @@ import { BookFlightComponent } from './Features/bookings/pages/book-flight/book-
 import { PreviousBookingsComponent } from './Features/bookings/pages/previous-bookings/previous-bookings/previous-bookings.component';
 import { UpcomingBookingsComponent } from './Features/bookings/pages/upcoming-bookings/upcoming-bookings/upcoming-bookings.component';
 import { MyBookingComponent } from './Features/bookings/pages/my-booking/my-booking/my-booking.component';
+import { BookInfoComponent } from './Features/bookings/pages/book-info/book-info/book-info.component';
 
 export const routes: Routes = [
     {path: '', component: HomePageComponent},
@@ -27,5 +28,6 @@ export const routes: Routes = [
     {path: 'book-flight/:id', component: BookFlightComponent},
     {path: 'previous-flights', component: PreviousBookingsComponent},
     {path: 'upcoming-flights', component: UpcomingBookingsComponent},
-    {path: 'my-booking', component: MyBookingComponent}
+    {path: 'my-booking', component: MyBookingComponent},
+    {path: 'booking-info/:id', component: BookInfoComponent}
 ];
