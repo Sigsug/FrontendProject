@@ -21,8 +21,8 @@ export class FlightsService {
     return of(this.flights);
   }
 
-  get(id: number) : Flights | undefined {
-    return this.flights.find(flight => flight.id === id);
+  get(id: number): Observable<Flights | undefined> {
+    return of(this.flights.find(flight => flight.id === id));
   }
 
   addFlight(flight: Flights): void {

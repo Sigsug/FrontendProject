@@ -1,74 +1,58 @@
-import {Component , OnInit} from '@angular/core';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { FlightsService } from '../../../service/flights.service';
 import { Flights } from '../../../model/flights';
-import { DatePipe } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'manage-flights',
-  styleUrls: ['manage-flights.component.css'],
-  templateUrl: 'manage-flights.component.html',
-  imports: [MatTableModule, DatePipe]
+  selector: 'app-manage-flights',
+  templateUrl: './manage-flights.component.html',
+  styleUrls: ['./manage-flights.component.css'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule
+  ]
 })
-export class ManageFlightsComponent implements OnInit {
+export class ManageFlightsComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Flights>;
-  displayedColumns: string[] = ['id', 'from', 'to', 'departure', 'arrival', 'passengers'];
+  displayedColumns: string[] = ['id', 'from', 'to', 'departure', 'return', 'book'];
+  flights: Flights[] = [];
 
-  flights = [
-    new Flights(123, "London", "New York", new Date(), new Date(), 2),
-    new Flights(222, "Tel-Aviv", "Amsterdam", new Date(), new Date(), 3),
-  ];
+  @ViewChild(MatSort) sort: MatSort | undefined;
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  constructor() {
+  constructor(private flightsService: FlightsService, private router: Router) {
     this.dataSource = new MatTableDataSource(this.flights);
   }
 
   ngOnInit(): void {
-    // Any additional initialization logic can go here
+    this.loadFlights();
   }
 
-  getFlights(): void {
-    // Implement the logic to get flights
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort ?? null;
+    this.dataSource.paginator = this.paginator ?? null;
   }
 
-  list(): void {
-    // Implement the logic to list flights
+  loadFlights(): void {
+    this.flightsService.list().subscribe((data: Flights[]) => {
+      this.flights = data;
+      this.dataSource.data = this.flights;
+    });
   }
 
-  get(): void {
-    // Implement the logic to get a specific flight
+  bookFlight(flightId: number): void {
+    this.router.navigate(['/book-flight', flightId]);
   }
 }
-export class TableBasicExample {
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-}
-
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: Element[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
-  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
-  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
-  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
-  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
-  {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
-  {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
-  {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
-  {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
-];

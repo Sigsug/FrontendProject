@@ -1,1 +1,15 @@
-<p>book-flight works!</p>
+<div *ngIf="flight">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Flight Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Flight No:</strong> {{flight.id}}</p>
+        <p><strong>Origin:</strong> {{flight.originCode}}</p>
+        <p><strong>Destination:</strong> {{flight.destinationCode}}</p>
+        <p><strong>Departure:</strong> {{flight.departureDateTime | date:'short'}}</p>
+        <p><strong>Return:</strong> {{flight.returnDateTime | date:'short'}}</p>
+        <p><strong>Number Of Seats:</strong> {{flight.numberOfSeats}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>

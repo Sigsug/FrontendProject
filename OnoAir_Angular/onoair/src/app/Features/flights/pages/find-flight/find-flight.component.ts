@@ -25,7 +25,7 @@ import { CommonModule } from '@angular/common';
 })
 export class FindFlightComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Flights>;
-  displayedColumns: string[] = ['origin', 'destination', 'departureDateTime', 'returnDateTime', 'book'];
+  displayedColumns: string[] = ['id', 'from', 'to', 'departure', 'return', 'book'];
   flights: Flights[] = [];
 
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -50,8 +50,8 @@ export class FindFlightComponent implements OnInit, AfterViewInit {
     });
   }
 
-  bookFlight(flightId: number): void {
-    this.router.navigate(['/book-flight', flightId]);
-  }
+  // bookFlight(flightId: number): void {
+  //   this.router.navigate(['/book-flight', flightId]);
+  // }
 
 }

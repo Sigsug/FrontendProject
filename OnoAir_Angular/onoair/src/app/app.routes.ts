@@ -23,7 +23,7 @@ export const routes: Routes = [
     {path: 'search-flight', component: SearchFlightComponent},
     {path: 'manage-destination', component: ManageDestinationsComponent},
     {path: 'flight-info', component: FlightInfoComponent},
-    {path : 'book-flight', component: BookFlightComponent},
+    {path: 'book-flight/:id', component: BookFlightComponent},
     {path: 'previous-flights', component: PreviousBookingsComponent},
     {path: 'upcoming-flights', component: UpcomingBookingsComponent}
 ];

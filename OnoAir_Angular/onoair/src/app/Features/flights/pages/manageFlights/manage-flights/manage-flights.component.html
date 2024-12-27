@@ -1,54 +1,57 @@
 <div class="container">
-        <h1>Manage Flights</h1>
+    <h1>Manage Flights</h1>
     <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" class="full-width-table">
-
+      <table mat-table [dataSource]="dataSource" matSort class="full-width-table">
+  
         <!-- ID Column -->
         <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let flight"> {{flight.id}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Flight No. </th>
+          <td mat-cell *matCellDef="let flight"> {{flight.id}} </td>
         </ng-container>
-
+  
         <!-- From Column -->
         <ng-container matColumnDef="from">
-        <th mat-header-cell *matHeaderCellDef> From </th>
-        <td mat-cell *matCellDef="let flight"> {{flight.from}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> From </th>
+          <td mat-cell *matCellDef="let flight"> {{flight.from}} </td>
         </ng-container>
-
+  
         <!-- To Column -->
         <ng-container matColumnDef="to">
-        <th mat-header-cell *matHeaderCellDef> To </th>
-        <td mat-cell *matCellDef="let flight"> {{flight.to}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> To </th>
+          <td mat-cell *matCellDef="let flight"> {{flight.to}} </td>
         </ng-container>
-
+  
         <!-- Departure Column -->
         <ng-container matColumnDef="departure">
-        <th mat-header-cell *matHeaderCellDef> Departure </th>
-        <td mat-cell *matCellDef="let flight"> {{flight.departure | date}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Depart </th>
+          <td mat-cell *matCellDef="let flight"> {{flight.departure | date:'short'}} </td>
         </ng-container>
-
-        <!-- Arrival Column -->
-        <ng-container matColumnDef="arrival">
-        <th mat-header-cell *matHeaderCellDef> Arrival </th>
-        <td mat-cell *matCellDef="let flight"> {{flight.arrival | date}} </td>
+  
+        <!-- Return Column -->
+        <ng-container matColumnDef="return">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Return </th>
+          <td mat-cell *matCellDef="let flight"> {{flight.return | date:'short'}} </td>
         </ng-container>
-
-        <!-- Passengers Column -->
-        <ng-container matColumnDef="passengers">
-        <th mat-header-cell *matHeaderCellDef> Passengers </th>
-        <td mat-cell *matCellDef="let flight"> {{flight.passengers}} </td>
+  
+        <!-- Book Column -->
+        <ng-container matColumnDef="book">
+          <th mat-header-cell *matHeaderCellDef> Book </th>
+          <td mat-cell *matCellDef="let flight">
+            <button mat-button color="primary" (click)="bookFlight(flight.id)">Book</button>
+          </td>
         </ng-container>
-
+  
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
-
-    <div class="table-controls">
+    <!-- <div class="table-controls">
     <a class="add-flight-btn">
         <button mat-raised-button color="primary" class="primary-btn">
         <i class="fas fa-plus"></i> Add New Flight
         </button>
     </a>
-    </div>
+    </div> -->
 </div>
