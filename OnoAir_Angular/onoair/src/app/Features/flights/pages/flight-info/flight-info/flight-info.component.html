@@ -1,1 +1,15 @@
-<p>flight-info works!</p>
+<div *ngIf="flight">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Flight Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Flight No:</strong> {{flight.id}}</p>
+        <p><strong>Origin Code:</strong> {{flight.originCode}}</p>
+        <p><strong>Destination Code:</strong> {{flight.destinationCode}}</p>
+        <p><strong>Departure Date Time:</strong> {{flight.departureDateTime | date:'short'}}</p>
+        <p><strong>Return Date Time:</strong> {{flight.returnDateTime | date:'short'}}</p>
+        <p><strong>Number of Seats:</strong> {{flight.numberOfSeats}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>

@@ -26,7 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ManageFlightsComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Flights>;
-  displayedColumns: string[] = ['id', 'from', 'to', 'departure', 'return', 'book'];
+  displayedColumns: string[] = ['id', 'originCode', 'destinationCode', 'departureDateTime', 'returnDateTime', 'numberOfSeats', 'action'];
   flights: Flights[] = [];
 
   @ViewChild(MatSort) sort: MatSort | undefined;
@@ -52,7 +52,12 @@ export class ManageFlightsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  bookFlight(flightId: number): void {
-    this.router.navigate(['/book-flight', flightId]);
+  viewFlight(flightId: number): void {
+    this.router.navigate(['/flight-info', flightId]);
   }
+
+  // editFlight(flightId: number): void {
+  //   // Implement the edit functionality here
+  //   console.log('Edit flight:', flightId);
+  // }
 }
