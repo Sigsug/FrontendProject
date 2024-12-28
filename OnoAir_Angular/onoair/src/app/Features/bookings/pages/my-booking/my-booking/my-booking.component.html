@@ -149,7 +149,56 @@
 
               <!-- Card Content -->
               <mat-card-content>
-                <!-- Similar structure as the upcoming flights tab -->
+                <div class="flight-details">
+                  <div class="time-details">
+                    <!-- Departure Info -->
+                    <div class="departure">
+                      <span class="label">Departure</span>
+                      <span class="time">{{ formatDate(booking.BoardingTime) }}</span>
+                      <span class="airport">{{ booking.Origin }}</span>
+                    </div>
+                    <!-- Duration Info -->
+                    <div class="duration">
+                      <span class="duration-time">
+                        {{ calculateDuration(booking.BoardingTime, booking.LandingTime) }}
+                      </span>
+                      <div class="flight-line">
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                        <div class="plane-icon">✈</div>
+                        <div class="line"></div>
+                        <div class="dot"></div>
+                      </div>
+                    </div>
+                    <!-- Arrival Info -->
+                    <div class="arrival">
+                      <span class="label">Arrival</span>
+                      <span class="time">{{ formatDate(booking.LandingTime) }}</span>
+                      <span class="airport">{{ booking.Destination }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Passenger Info -->
+                  <div class="passenger-details">
+                    <div class="detail-group">
+                      <div class="detail-row">
+                        <span class="label">Flight Number</span>
+                        <span class="value">FL-{{ booking.FlightId }}</span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="label">Order ID</span>
+                        <span class="value">#{{ booking.OrderId }}</span>
+                      </div>
+                    </div>
+                    <div class="passengers-list">
+                      <div class="label">Passengers ({{ booking.Passenger }})</div>
+                      <div *ngFor="let name of booking.PassengerNames; let i = index" class="passenger-row">
+                        <div class="passenger-name">{{ name }}</div>
+                        <div class="passport">{{ booking.Passports[i] }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </mat-card-content>
 
               <mat-card-actions>
