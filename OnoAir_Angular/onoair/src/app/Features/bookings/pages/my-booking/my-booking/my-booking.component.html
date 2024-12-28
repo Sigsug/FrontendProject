@@ -1,18 +1,182 @@
 <div class="container">
-    <h1>My Bookings</h1>
-    <div *ngFor="let booking of bookings" class="booking-card">
-      <mat-card>
-        <img mat-card-image [src]="booking.ImageUrl" alt="Destination Image">
-        <mat-card-content>
-          <p><strong>Order ID:</strong> {{booking.OrderId}}</p>
-          <p><strong>Flight ID:</strong> {{booking.FlightId}}</p>
-          <p><strong>Passengers:</strong> {{booking.Passenger}}</p>
-          <p><strong>Passenger Names:</strong> {{booking.PassengerNames.join(', ')}}</p>
-          <p><strong>Passports:</strong> {{booking.Passports.join(', ')}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button color="primary" (click)="viewBooking(booking.OrderId)">View Booking</button>
-        </mat-card-actions>
-      </mat-card>
+  <!-- Header Section -->
+  <header class="header">
+    <h1 class="page-title">My Flight Bookings</h1>
+    <div class="booking-stats">
+      <div class="stat-item">
+        <mat-icon>flight_takeoff</mat-icon>
+        <span>{{ futureBookings.length }} Upcoming</span>
+      </div>
+      <div class="stat-item">
+        <mat-icon>flight_land</mat-icon>
+        <span>{{ pastBookings.length }} Past</span>
+      </div>
     </div>
-  </div>
+  </header>
+
+  <!-- Tabs Section -->
+  <mat-tab-group>
+    <!-- Upcoming Flights Tab -->
+    <mat-tab label="Upcoming Flights">
+      <div class="booking-list">
+        <!-- Conditional rendering for empty state -->
+        <ng-container *ngIf="futureBookings.length > 0; else noUpcomingFlights">
+          <div *ngFor="let booking of futureBookings" class="booking-card">
+            <mat-card>
+              <!-- Card Header -->
+              <div class="card-header">
+                <img [src]="booking.ImageUrl" alt="Airline Logo" class="airline-logo" />
+                <div class="flight-info">
+                  <div class="flight-route">
+                    <span class="airport-code">{{ booking.Origin }}</span>
+                    <mat-icon class="route-icon">arrow_forward</mat-icon>
+                    <span class="airport-code">{{ booking.Destination }}</span>
+                  </div>
+                  <div class="city-names">
+                    {{ getOriginCity(booking.Origin) }} to {{ getDestinationCity(booking.Destination) }}
+                  </div>
+                </div>
+                <mat-chip color="{{ getBookingStatus(booking).color }}" class="status-chip">
+                  <mat-icon>{{ getBookingStatus(booking).icon }}</mat-icon>
+                  {{ getBookingStatus(booking).label }}
+                </mat-chip>
+              </div>
+
+              <mat-divider></mat-divider>
+
+              <!-- Card Content -->
+              <mat-card-content>
+                <div class="flight-details">
+                  <div class="time-details">
+                    <!-- Departure Info -->
+                    <div class="departure">
+                      <span class="label">Departure</span>
+                      <span class="time">{{ formatDate(booking.BoardingTime) }}</span>
+                      <span class="airport">{{ booking.Origin }}</span>
+                    </div>
+                    <!-- Duration Info -->
+                    <div class="duration">
+                      <span class="duration-time">
+                        {{ calculateDuration(booking.BoardingTime, booking.LandingTime) }}
+                      </span>
+                      <div class="flight-line">
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                        <div class="plane-icon">✈</div>
+                        <div class="line"></div>
+                        <div class="dot"></div>
+                      </div>
+                    </div>
+                    <!-- Arrival Info -->
+                    <div class="arrival">
+                      <span class="label">Arrival</span>
+                      <span class="time">{{ formatDate(booking.LandingTime) }}</span>
+                      <span class="airport">{{ booking.Destination }}</span>
+                    </div>
+                  </div>
+
+                  <!-- Passenger Info -->
+                  <div class="passenger-details">
+                    <div class="detail-group">
+                      <div class="detail-row">
+                        <span class="label">Flight Number</span>
+                        <span class="value">FL-{{ booking.FlightId }}</span>
+                      </div>
+                      <div class="detail-row">
+                        <span class="label">Order ID</span>
+                        <span class="value">#{{ booking.OrderId }}</span>
+                      </div>
+                    </div>
+                    <div class="passengers-list">
+                      <div class="label">Passengers ({{ booking.Passenger }})</div>
+                      <div *ngFor="let name of booking.PassengerNames; let i = index" class="passenger-row">
+                        <div class="passenger-name">{{ name }}</div>
+                        <div class="passport">{{ booking.Passports[i] }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+
+              <mat-card-actions>
+                <button mat-stroked-button color="accent" (click)="viewBooking(booking.OrderId)">
+                  <mat-icon>visibility</mat-icon>
+                  View Details
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </ng-container>
+
+        <!-- Empty State for Upcoming Flights -->
+        <ng-template #noUpcomingFlights>
+          <div class="empty-state">
+            <mat-icon class="empty-icon">calendar_today</mat-icon>
+            <h3>No Upcoming Flights</h3>
+            <p>You don't have any upcoming flight bookings at the moment.</p>
+          </div>
+        </ng-template>
+      </div>
+    </mat-tab>
+
+    <!-- Past Flights Tab -->
+    <mat-tab label="Past Flights">
+      <div class="booking-list">
+        <!-- Conditional rendering for empty state -->
+        <ng-container *ngIf="pastBookings.length > 0; else noPastFlights">
+          <div *ngFor="let booking of pastBookings" class="booking-card">
+            <mat-card>
+              <!-- Card Header -->
+              <div class="card-header">
+                <img [src]="booking.ImageUrl" alt="Airline Logo" class="airline-logo" />
+                <div class="flight-info">
+                  <div class="flight-route">
+                    <span class="airport-code">{{ booking.Origin }}</span>
+                    <mat-icon class="route-icon">arrow_forward</mat-icon>
+                    <span class="airport-code">{{ booking.Destination }}</span>
+                  </div>
+                  <div class="city-names">
+                    {{ getOriginCity(booking.Origin) }} to {{ getDestinationCity(booking.Destination) }}
+                  </div>
+                </div>
+                <mat-chip color="primary" class="status-chip">
+                  <mat-icon>check_circle</mat-icon>
+                  Completed
+                </mat-chip>
+              </div>
+
+              <mat-divider></mat-divider>
+
+              <!-- Card Content -->
+              <mat-card-content>
+                <!-- Similar structure as the upcoming flights tab -->
+              </mat-card-content>
+
+              <mat-card-actions>
+                <button mat-stroked-button color="primary" (click)="viewBooking(booking.OrderId)">
+                  <mat-icon>visibility</mat-icon>
+                  View Details
+                </button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </ng-container>
+
+        <!-- Empty State for Past Flights -->
+        <ng-template #noPastFlights>
+          <div class="empty-state">
+            <mat-icon class="empty-icon">history</mat-icon>
+            <h3>No Past Flights</h3>
+            <p>Your flight history will appear here once you complete your trips.</p>
+          </div>
+        </ng-template>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" *ngIf="isLoading">
+  <mat-spinner diameter="48"></mat-spinner>
+  <span>Loading your bookings...</span>
+</div>

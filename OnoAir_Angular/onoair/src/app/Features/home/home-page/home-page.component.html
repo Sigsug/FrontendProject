@@ -1,19 +1,24 @@
-<mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Last minute flights
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-last-min-flight></app-last-min-flight>
-    </mat-expansion-panel>
+<div class="landing-background">
+  <div class="landing-container">
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Find Your Next Adventure</h1>
+        <div class="search-container mat-elevation-z2">
+          <app-find-flight></app-find-flight>
+        </div>
+      </div>
+    </section>
   
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Find a Flight
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <app-find-flight></app-find-flight>
-    </mat-expansion-panel>
-  </mat-accordion>
+    <section class="deals-section">
+      <div class="section-content">
+        <header class="section-header">
+          <h1>Featured Deals</h1>
+          <mat-icon class="section-icon">local_offer</mat-icon>
+        </header>
+        <div class="deals-container mat-elevation-z1">
+          <app-last-min-flight></app-last-min-flight>
+        </div>
+      </div>
+    </section>
+  </div>  
+</div>

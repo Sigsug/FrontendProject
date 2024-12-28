@@ -1,8 +1,13 @@
 <div class="container">
   <h1>Find Flights</h1>
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort class="full-width-table">
+    <!-- Search Input -->
+    <mat-form-field class="example-form-field">
+      <mat-label class>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search all fields">
+    </mat-form-field>
 
+    <table mat-table [dataSource]="dataSource" matSort class="full-width-table">
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Flight No. </th>
