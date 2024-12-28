@@ -19,8 +19,8 @@ export class SearchFlightComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'from', 'to', 'departure', 'return'];
 
   flights = [
-    new Flights(123, "London", "New York", new Date(), new Date(), 2),
-    new Flights(222, "Tel-Aviv", "Amsterdam", new Date(), new Date(), 3),
+    new Flights(123, "London", "New York", new Date(), new Date(), 2,"https://example.com/syd.jpg"),
+    new Flights(222, "Tel-Aviv", "Amsterdam", new Date(), new Date(), 3,"https://example.com/syd.jpg"),
   ];
 
   @ViewChild(MatSort) sort!: MatSort;

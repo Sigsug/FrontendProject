@@ -5,6 +5,7 @@ export class Flights {
         public destinationCode: string,
         public departureDateTime: Date,
         public returnDateTime: Date,
-        public numberOfSeats: number
+        public numberOfSeats: number,
+        public imageUrl: string
     ) { }   
 }

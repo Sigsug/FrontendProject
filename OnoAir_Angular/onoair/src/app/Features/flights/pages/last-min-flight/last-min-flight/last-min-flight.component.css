@@ -1,45 +1,74 @@
-.example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://cdn3.iconfinder.com/data/icons/world-top-cities-2-3/180/79-512.png');
-    background-size: cover;
-  }
-
-.mat-mdc-card-header {
-    background-color: cadetblue;
+.container {
+  margin: 20px;
 }
 
-.mat-mdc-card-actions {
-    background-color: cadetblue;
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
 }
 
-.mat-mdc-card-content {
-    background-color: cadetblue;
+.flight-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
-.mat-mdc-card-after {
-    background-color: cadetblue;
+.flight-card {
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px; /* Adjust the gap between cards as needed */
-  }
-  
-  .example-card {
-    flex: 1 1 calc(33.333% - 16px); /* Adjust the width of the cards as needed */
-    box-sizing: border-box;
-  }
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
 
-.example-header-image2 {
-    background-image: url('https://as2.ftcdn.net/v2/jpg/05/45/51/05/1000_F_545510595_CDMhGwg0kVEhCqlFyaB5jJR22kVj3r7t.jpg');
-    background-size: cover;
-  }
+mat-card img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
-.example-header-image3 {
-    background-image: url('https://images.vexels.com/media/users/3/136545/isolated/preview/402de4a5b1a7d8aa49d44446edd732a2-paris-landmark-emblem-by-vexels.png');
-    background-size: cover; 
-  }
+mat-card-content {
+  padding: 16px;
+}
+
+mat-card-content h2 {
+  margin: 0;
+  color: white;
+}
+
+mat-card-content p {
+  margin: 8px 0;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+mat-card-actions button {
+  background-color: #3f51b5;
+  color: white;
+}
+
+mat-card-actions button:hover {
+  background-color: #303f9f;
+}
+
+.no-flights {
+  text-align: center;
+  color: #ff0000;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
