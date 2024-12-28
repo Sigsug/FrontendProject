@@ -1,55 +1,321 @@
-    .mdc-card__media:first-child {
-        width: 100px;
-         height: auto;
-    }
-    .mat-mdc-card {
-        background-color: #e1ebc1 ;
-    }
-    .container {
-        margin: 20px;
-      }
-      
-      h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: black;
-      }
-      
-      .booking-card {
-        margin-bottom: 20px;
-      }
-      
-      mat-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      
-      mat-card img {
-        max-height: 200px;
-        object-fit: cover;
-      }
-      
-      mat-card-content {
-        padding: 16px;
-      }
-      
-      mat-card-content p {
-        margin: 8px 0;
-      }
-      
-      mat-card-actions {
-        display: flex;
-        justify-content: flex-end;
-        padding: 16px;
-      }
-      
-      mat-card-actions button {
-        background-color: #12262f;
-        color: white;
-      }
-      
-      mat-card-actions button:hover {
-        background-color: #12262f;
-      }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #1a365d;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.booking-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4a5568;
+}
+
+.booking-tabs {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tab-icon {
+  margin-right: 8px;
+}
+
+.booking-list {
+  padding: 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #718096;
+}
+
+.empty-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.booking-card {
+  margin-bottom: 1.5rem;
+}
+
+mat-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #e2e8f0;
+}
+
+mat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  background-color: #f7fafc;
+}
+
+.airline-logo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.flight-info {
+  flex: 1;
+}
+
+.flight-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.airport-code {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  letter-spacing: 0.05em;
+}
+
+.route-icon {
+  color: #718096;
+}
+
+.city-names {
+  color: #718096;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.status-chip-list {
+  margin-left: auto;
+}
+
+.status-chip {
+  min-height: 32px !important;
+  padding: 0 12px;
+}
+
+.chip-icon {
+  margin-right: 8px;
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+.flight-details {
+  padding: 1.5rem;
+}
+
+.time-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f7fafc;
+  border-radius: 8px;
+}
+
+.departure, .arrival {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.duration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.duration-time {
+  color: #4a5568;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.flight-line {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 200px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4299e1;
+}
+
+.line {
+  height: 2px;
+  flex: 1;
+  background-color: #4299e1;
+}
+
+.plane-icon {
+  color: #4299e1;
+  transform: rotate(90deg);
+  font-size: 1.25rem;
+}
+
+.passenger-details {
+  background-color: #f7fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.value {
+  color: #2d3748;
+  font-weight: 500;
+}
+
+mat-card-actions {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+button[mat-stroked-button] {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+/* Material Design Component Overrides */
+::ng-deep .mat-mdc-chip-option {
+  min-height: 32px !important;
+}
+
+::ng-deep .mat-mdc-chip-option.mat-mdc-chip-selected.mat-primary {
+  background-color: #2196F3 !important;
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-chip-option.mat-mdc-chip-selected.mat-accent {
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-chip-option.mat-mdc-chip-selected.mat-warn {
+  background-color: #FF9800 !important;
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-chip-option-disabled {
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+::ng-deep .mat-mdc-chip-option .mdc-evolution-chip__checkmark {
+  display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+  }
+
+  .status-chip-list {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .time-details {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .flight-line {
+    transform: rotate(90deg);
+    margin: 2rem 0;
+  }
+
+  .passenger-details {
+    margin-top: 1.5rem;
+  }
+
+  mat-card-actions {
+    flex-direction: column;
+  }
+
+  button[mat-stroked-button] {
+    width: 100%;
+    justify-content: center;
+  }
+}
