@@ -21,7 +21,7 @@ export const routes: Routes = [
     {path: 'find-flight', component: FindFlightComponent},
     {path: 'manage-flights', component: ManageFlightsComponent},
     {path: 'last-min-flight', component: LastMinFlightComponent},
-    {path: 'new-destination', component: NewDestinationComponent},
+    {path: 'new-destination/:id', component: NewDestinationComponent},
     {path: 'search-flight', component: SearchFlightComponent},
     {path: 'manage-destination', component: ManageDestinationsComponent},
     {path: 'flight-info/:id', component: FlightInfoComponent},

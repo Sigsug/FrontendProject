@@ -4,6 +4,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { DestinationService } from '../../../service/destination.service';
 import { Destination } from '../../../model/destination';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSortModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ]
 })
 export class ManageDestinationsComponent implements OnInit, AfterViewInit {
@@ -30,7 +32,7 @@ export class ManageDestinationsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort | undefined;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  constructor(private destinationService: DestinationService) {
+  constructor(private destinationService: DestinationService, private router: Router) {
     this.dataSource = new MatTableDataSource(this.destinations);
   }
 
@@ -50,8 +52,11 @@ export class ManageDestinationsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onEdit(destination: Destination): void {
-    // Implement the edit functionality here
-    console.log('Edit destination:', destination);
+  viewDestination(dest_code: string): void {
+    this.router.navigate(['/new-destination', dest_code]);
   }
+  // onEdit(destination: Destination): void {
+  //   // Implement the edit functionality here
+  //   console.log('Edit destination:', destination);
+  // }
 }

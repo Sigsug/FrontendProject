@@ -52,17 +52,24 @@
 
   .mat-mdc-table {
     width: 100%;
-    background-color: #e1ebc1;
+    background-color: #12262f;
   }
   .mat-icon {
-    color: #3f51b5;
+    color: #12262f;
   }
   .mat-mdc-header-row {
     color: black;
   }
-    .mat-mdc-cell {
-        color: black;
-    }
-    .mat-mdc-paginator {
-        background-color: #12262f;
-    }
+  .mat-mdc-header-cell {
+    color: white;
+    background-color: #12262f;
+  }
+  .mat-mdc-cell {
+    color: black;
+  }
+  .mat-mdc-row {
+    background-color: #e1ebc1;
+  }
+  .mat-mdc-paginator {
+    background-color: #12262f;
+  }

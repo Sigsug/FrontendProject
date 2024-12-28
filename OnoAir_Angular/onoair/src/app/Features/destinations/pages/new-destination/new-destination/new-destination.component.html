@@ -1,1 +1,15 @@
-<p>new-destination works!</p>
+<div *ngIf="destination">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>New Destination</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Destination Code:</strong> {{destination.dest_code}}</p>
+        <p><strong>Name:</strong> {{destination.dest_name}}</p>
+        <p><strong>Airport Name:</strong> {{destination.airport_name}}</p>
+        <p><strong>Airport Website: </strong> <a [href]="destination.airport_url" target="_blank">{{destination.airport_url}}</a></p>
+        <p><strong>Email:</strong> {{destination.airport_email}}</p>
+        <p><img [src]="destination.image_url" alt="{{destination.dest_name}}" width="200"></p>
+      </mat-card-content>
+    </mat-card>
+  </div>
