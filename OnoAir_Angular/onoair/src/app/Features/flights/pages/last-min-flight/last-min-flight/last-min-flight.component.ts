@@ -21,10 +21,26 @@ import { MatButtonModule } from '@angular/material/button';
 export class LastMinFlightComponent implements OnInit {
   flight: Flights[] = [];
   cityNames: { [key: string]: string } = {
+    'LHR': 'London',
     'JFK': 'New York',
+    'TLV': 'Tel Aviv',
     'AMS': 'Amsterdam',
+    'SFO': 'San Francisco',
     'NRT': 'Tokyo',
-    'SYD': 'Sydney'
+    'DXB': 'Dubai',
+    'SYD': 'Sydney',
+    'LAX': 'Los Angeles',
+    'ORD': 'Chicago',
+    'CDG': 'Paris',
+    'FRA': 'Frankfurt',
+    'HKG': 'Hong Kong',
+    'SIN': 'Singapore',
+    'MAD': 'Madrid',
+    'BCN': 'Barcelona',
+    'MUC': 'Munich',
+    'ZRH': 'Zurich',
+    'CPH': 'Copenhagen',
+    'DUB': 'Dublin'
   };
 
   constructor(private flights: FlightsService, private router: Router) {}

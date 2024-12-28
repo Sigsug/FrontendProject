@@ -1,4 +1,89 @@
-.mat-expansion-panel {
-        margin: 5px auto;
-        /* max-width: 800px; */
+/* home-page.component.scss */
+.landing-background {
+  background: linear-gradient(135deg, #1976d2, #64b5f6);
+}
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  color: white;
+
+  .hero-content {
+    text-align: center;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
     }
+  }
+
+  .search-container {
+    background: rgb(247, 248, 249);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.deals-section {
+  .section-content {
+    padding: 1rem;
+  }
+  max-width: 1200px;
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center; /* Added this line to center horizontally */
+
+    .section-icon {
+      color: #1976d2;
+      transform: scale(1.5);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: white;
+      margin: 0;
+    }
+  }
+
+  .deals-container {
+    background: rgb(247, 248, 249);
+    border-radius: 8px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .search-container,
+  .deals-container {
+    padding: 1rem;
+  }
+}
